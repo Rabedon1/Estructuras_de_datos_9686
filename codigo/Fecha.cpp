@@ -12,62 +12,62 @@
 #include <string>
 #include <cstring>
 
-std::string Fecha::getHora(void)
+int Fecha::getHora(void)
 {
    return hora;
 }
 
-void Fecha::setHora(std::string newHora)
+void Fecha::setHora(int newHora)
 {
    hora = newHora;
 }
 
-std::string Fecha::getMinuto(void)
+int Fecha::getMinuto(void)
 {
    return minuto;
 }
 
-void Fecha::setMinuto(std::string newMinuto)
+void Fecha::setMinuto(int newMinuto)
 {
    minuto = newMinuto;
 }
 
-std::string Fecha::getSegundo(void)
+int Fecha::getSegundo(void)
 {
    return segundo;
 }
 
-void Fecha::setSegundo(std::string newSegundo)
+void Fecha::setSegundo(int newSegundo)
 {
    segundo = newSegundo;
 }
 
-std::string Fecha::getDia(void)
+int Fecha::getDia(void)
 {
    return dia;
 }
 
-void Fecha::setDia(std::string newDia)
+void Fecha::setDia(int newDia)
 {
    dia = newDia;
 }
 
-std::string Fecha::getMes(void)
+int Fecha::getMes(void)
 {
    return mes;
 }
 
-void Fecha::setMes(std::string newMes)
+void Fecha::setMes(int newMes)
 {
    mes = newMes;
 }
 
-std::string Fecha::getAnio(void)
+int Fecha::getAnio(void)
 {
    return anio;
 }
 
-void Fecha::setAnio(std::string newAnio)
+void Fecha::setAnio(int newAnio)
 {
    anio = newAnio;
 }
@@ -75,9 +75,20 @@ void Fecha::setAnio(std::string newAnio)
 
 Fecha::Fecha()
 {
+    setlocale(LC_ALL, "es_ES.UTF-8");
+    std::time_t tiempoActual = std::time(nullptr);
+
+    std::tm* tiempoLocal = std::localtime(&tiempoActual);
+
+	this->dia = tiempoLocal->tm_mday;
+	this->mes = tiempoLocal->tm_mon+1;
+    this->anio = tiempoLocal->tm_year + 1900;
+    this->hora = tiempoLocal->tm_hour;
+    this->minuto = tiempoLocal->tm_min;
+    this->segundo = tiempoLocal->tm_sec;
 }
 
-Fecha::Fecha(std::string newAnio, std::string newMes, std::string newDia,std:: string newHora,std:: string newMinuto, std::string newSegundo)
+Fecha::Fecha(int newAnio, int newMes, int newDia,int newHora,int newMinuto, int newSegundo)
 {
    anio = newAnio;
    mes = newMes;
@@ -86,21 +97,13 @@ Fecha::Fecha(std::string newAnio, std::string newMes, std::string newDia,std:: s
    minuto = newMinuto;
    segundo = newSegundo;
 }
-Fecha::Fecha(std::string newDia,std:: string newMes, std::string newAnio)
-{
-  this->dia= newDia;
-   this->mes= newMes;
-   this->anio= newAnio;
-   this->hora= "00";
-   this->minuto= "00";
-   this->segundo= "00";
+
+std::ostream& operator <<(std::ostream& os, const Fecha& fechaActual){
+	os<<std::to_string(fechaActual.dia) + "/"+std::to_string(fechaActual.mes)+"/"+std::to_string(fechaActual.anio)+" - hora: "+
+	std::to_string(fechaActual.hora)+":"+std::to_string(fechaActual.minuto)+":"+std::to_string(fechaActual.segundo);
+	return os;
 }
-// Name:       Fecha::~Fecha()
-// Purpose:    Implementation of Fecha::~Fecha()
-// Return:     
-////////////////////////////////////////////////////////////////////////
 
 Fecha::~Fecha()
 {
-   // TODO : implement
 }

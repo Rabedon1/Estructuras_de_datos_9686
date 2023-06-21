@@ -5,77 +5,47 @@
  * Purpose: Implementation of the class Nodo
  ***********************************************************************/
 
-#include "Persona.h"
 #include "Nodo.h"
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::getAnterior()
-// Purpose:    Implementation of Nodo::getAnterior()
-// Return:     Nodo
-////////////////////////////////////////////////////////////////////////
-
-Nodo Nodo::getAnterior(void)
-{
-   return anterior;
+template <typename T>
+Nodo<T>::Nodo(T dato){
+	this->dato = dato;
+	this->siguiente = nullptr;
+	this->anterior = nullptr;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::setAnterior(Nodo newAnterior)
-// Purpose:    Implementation of Nodo::setAnterior()
-// Parameters:
-// - newAnterior
-// Return:     void
-////////////////////////////////////////////////////////////////////////
-
-void Nodo::setAnterior(Nodo newAnterior)
-{
-   anterior = newAnterior;
+template <typename T>
+Nodo<T>::~Nodo(){
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::getSiguiente()
-// Purpose:    Implementation of Nodo::getSiguiente()
-// Return:     Nodo
-////////////////////////////////////////////////////////////////////////
+template <typename T>
+void Nodo<T>::setDato(T dato){
+	this->dato = dato;
 
-Nodo Nodo::getSiguiente(void)
-{
-   return siguiente;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::setSiguiente(Nodo newSiguiente)
-// Purpose:    Implementation of Nodo::setSiguiente()
-// Parameters:
-// - newSiguiente
-// Return:     void
-////////////////////////////////////////////////////////////////////////
-
-void Nodo::setSiguiente(Nodo newSiguiente)
-{
-   siguiente = newSiguiente;
+template <typename T>
+T Nodo<T>::getDato(){
+	return this->dato;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::Nodo(Persona persona)
-// Purpose:    Implementation of Nodo::Nodo()
-// Parameters:
-// - persona
-// Return:     
-////////////////////////////////////////////////////////////////////////
-
-Nodo::Nodo(Persona persona)
-{
-   // TODO : implement
+template <typename T>
+void Nodo<T>::setSiguiente(Nodo<T>* siguiente){
+	this->siguiente = siguiente;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::~Nodo()
-// Purpose:    Implementation of Nodo::~Nodo()
-// Return:     
-////////////////////////////////////////////////////////////////////////
-
-Nodo::~Nodo()
-{
-   // TODO : implement
+template <typename T>
+Nodo<T>* Nodo<T>::getSiguiente(){
+	return this->siguiente;
 }
+
+template <typename T>
+void Nodo<T>::setAnterior(Nodo<T>* anterior){
+	this->anterior = anterior;
+}
+
+template <typename T>
+Nodo<T>* Nodo<T>::getAnterior(){
+	return this->anterior;
+}
+

@@ -29,7 +29,6 @@ public:
    Fecha();
    Fecha(int, int, int, int, int, int);
    ~Fecha();
-   
    friend std::ostream& operator<<(std::ostream&, const Fecha&);
 
 private:

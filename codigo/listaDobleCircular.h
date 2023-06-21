@@ -8,34 +8,29 @@
 #if !defined(__Class_Diagram_2_listaDobleCircular_h)
 #define __Class_Diagram_2_listaDobleCircular_h
 
-class Nodo;
 
-#include <Nodo.h>
-#include <Persona.h>
-
-class listaDobleCircular
+#include "Nodo.h"
+#include "CRUDLista.h"
+template <typename T>
+class listaDobleCircular:public CRUDLista<T>
 {
 public:
    listaDobleCircular();
    ~listaDobleCircular();
-   void insertar(Persona persona);
-   void eliminar(Persona persona);
-   void imprimirDatos(void);
-   Nodo crearNodo(Persona persona);
-   int cantidadNodos(void);
-   void agregarPersona(Persona persona);
-   Persona buscarPorCedula(std::string cedula);
-   Nodo getUltimo(void);
-   void setUltimo(Nodo newUltimo);
-   Nodo getPrimero(void);
-   void setPrimero(Nodo newPrimero);
-
-   Nodo** nodo;
+   bool estaVacia()override;
+   void insertar(T)override;
+   void eliminar(T)override;
+   bool buscar(T)override;
+   void mostrar()override;
+   Nodo<T>* getPrimero();
+   Nodo<T>* getUltimo();
+   void setPrimero(Nodo<T>*);
+   void setUltimo(Nodo<T>*);
 
 protected:
 private:
-   Nodo ultimo;
-   Nodo primero;
+   Nodo<T>* primero;
+   Nodo<T>* ultimo;
 
 
 };

@@ -8,26 +8,25 @@
 #if !defined(__Class_Diagram_2_Nodo_h)
 #define __Class_Diagram_2_Nodo_h
 
-class Persona;
-
-#include <Persona.h>
-
+#pragma once
+template <typename T>
 class Nodo
 {
 public:
-   Nodo getAnterior(void);
-   void setAnterior(Nodo newAnterior);
-   Nodo getSiguiente(void);
-   void setSiguiente(Nodo newSiguiente);
-   Nodo(Persona persona);
-   ~Nodo();
-
-   Persona** persona;
-
+	Nodo(T);
+	~Nodo();
+	void setDato(T);
+	T getDato();
+	void setSiguiente(Nodo*);
+	Nodo* getSiguiente();
+	void setAnterior(Nodo*);
+	Nodo* getAnterior();
 protected:
 private:
-   Nodo anterior;
-   Nodo siguiente;
+	T dato;
+	Nodo<T>* siguiente;
+	Nodo<T>* anterior;
+
 
 
 };
