@@ -26,6 +26,11 @@ public:
    Nodo<T>* getUltimo();
    void setPrimero(Nodo<T>*);
    void setUltimo(Nodo<T>*);
+	void shellSort();
+	int contarElementos() const;
+	Nodo<T>* obtenerNodoEnPosicion(int posicion) const;
+
+
 
 protected:
 private:

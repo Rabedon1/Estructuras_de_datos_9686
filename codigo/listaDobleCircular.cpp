@@ -86,7 +86,62 @@ void listaDobleCircular<T>::imprimir()
 		cout<<endl;
 		}	
 	}
+	
+template <typename T>
+void listaDobleCircular<T>::shellSort()
+{
+    int n = contarElementos();
 
+    // Calcula el tamaño del salto inicial
+    int salto = n / 2;
+
+    while (salto > 0) {
+        for (int i = salto; i < n; i++) {
+            Nodo<T>* temp = obtenerNodoEnPosicion(i);
+            T dato = temp->getDato();
+            int j = i;
+
+            while (j >= salto && obtenerNodoEnPosicion(j - salto)->getDato() > dato) {
+                Nodo<T>* nodoActual = obtenerNodoEnPosicion(j);
+                Nodo<T>* nodoSalto = obtenerNodoEnPosicion(j - salto);
+
+                nodoActual->setDato(nodoSalto->getDato());
+                j -= salto;
+            }
+
+            Nodo<T>* nodoActual = obtenerNodoEnPosicion(j);
+            nodoActual->setDato(dato);
+        }
+
+        salto /= 2;
+    }
+}
+
+template <typename T>
+int listaDobleCircular<T>::contarElementos() const
+{
+    int count = 0;
+    Nodo<T>* aux = primero;
+
+    do {
+        count++;
+        aux = aux->getSiguiente();
+    } while (aux != primero);
+
+    return count;
+}
+
+template <typename T>
+Nodo<T>* listaDobleCircular<T>::obtenerNodoEnPosicion(int posicion) const
+{
+    Nodo<T>* aux = primero;
+
+    for (int i = 0; i < posicion; i++) {
+        aux = aux->getSiguiente();
+    }
+
+    return aux;
+}
 template <typename T>
 Nodo<T>* listaDobleCircular<T>::getUltimo(void)
 {
