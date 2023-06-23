@@ -4,13 +4,13 @@
 #include <fstream>
 #include <sstream>
 
-GestorArchivo::GestorArchivo() {
+Archivo::Archivo() {
 }
 
-GestorArchivo::~GestorArchivo() {
+Archivo::~Archivo() {
 }
 
-Fecha GestorArchivo::extraerFecha(std::string input) {
+Fecha Archivo::extraerFecha(std::string input) {
 	int anio, mes, dia, hora, minuto, segundo;
 	std::stringstream ss(input);
     char dl;
@@ -23,7 +23,7 @@ Fecha GestorArchivo::extraerFecha(std::string input) {
 }
 
 // Función para guardar los elementos de una ListaCircularDoble en un archivo CSV
-void GestorArchivo::guardarListaPersonaComoCSV(listaDobleCircular<Persona>& lista,std::string nombreArchivo) {
+void Archivo::guardarListaPersonaComoCSV(listaDobleCircular<Persona>& lista,std::string nombreArchivo) {
     std::ofstream archivo(nombreArchivo);
     if (archivo.is_open()) {
         Nodo<Persona>* actual = lista.getPrimero();
@@ -48,7 +48,7 @@ void GestorArchivo::guardarListaPersonaComoCSV(listaDobleCircular<Persona>& list
 }
 
 // Función para cargar los elementos de un archivo CSV en una ListaCircularDoble
-void GestorArchivo::cargarCSVEnListaPersona(listaDobleCircular<Persona>& lista, std::string nombreArchivo) {
+void Archivo::cargarCSVEnListaPersona(listaDobleCircular<Persona>& lista, std::string nombreArchivo) {
     std::ifstream archivo(nombreArchivo);
     Fecha fecha;
     if (archivo.is_open()) {
@@ -72,10 +72,10 @@ void GestorArchivo::cargarCSVEnListaPersona(listaDobleCircular<Persona>& lista, 
     }
 }
 
-void GestorArchivo::guardarListaRegistroComoCSV(listaDobleCircular<listaDobleCircular>& lista, std::string nombreArchivo){
+void Archivo::guardarListaRegistroComoCSV(listaDobleCircular<Registro>& lista, std::string nombreArchivo){
 	std::ofstream archivo(nombreArchivo);
     if (archivo.is_open()) {
-        NodoDoble<RegistroEntradaSalida>* actual = lista.getCabeza();
+        Nodo<Registro>* actual = lista.getPrimero();
         if (actual != nullptr) {
         	archivo << "CEDULA" << ";"
                         << "FECHA / HORA ENTRADA" << ";"
@@ -83,11 +83,11 @@ void GestorArchivo::guardarListaRegistroComoCSV(listaDobleCircular<listaDobleCir
                         << "CONTADOR REGISTRO" << std::endl;
             do {
                 archivo << actual->getDato().getPersona().getCedula() << ";"
-                        << actual->getDato().getFechaEntrada() << ";"
-                        << actual->getDato().getFechaSalida() << ";"
-                        << actual->getDato().getContadorRegistro() << std::endl;
+                        << actual->getDato().getEntradaDate() << ";"
+                        << actual->getDato().getSalidaDate() << ";"
+                        << actual->getDato().getContador() << std::endl;
                 actual = actual->getSiguiente();
-            } while (actual != lista.getCabeza());
+            } while (actual != lista.getPrimero());
         }
         archivo.close();
         std::cout << "Archivo guardado correctamente." << std::endl;
@@ -96,7 +96,7 @@ void GestorArchivo::guardarListaRegistroComoCSV(listaDobleCircular<listaDobleCir
     }
 }
 
-void GestorArchivo::cargarCSVEnListaRegistro(listaDobleCircular<Registro>& listaRegistros, listaDobleCircular<Persona>& listaPersonas, std::string nombreArchivo){
+void Archivo::cargarCSVEnListaRegistro(listaDobleCircular<Registro>& listaRegistros, listaDobleCircular<Persona>& listaPersonas, std::string nombreArchivo){
 	std::ifstream archivo(nombreArchivo);
 	Persona personaRegistro;
     Fecha fechaEntrada;
@@ -120,7 +120,7 @@ void GestorArchivo::cargarCSVEnListaRegistro(listaDobleCircular<Registro>& lista
             Persona personaEncontrada(cedula, "", "", fechaEntrada);
             personaRegistro = listaPersonas.extraer(personaEncontrada);
             Registro registro(personaRegistro, fechaEntrada, fechaSalida);
-            Registro.setContadorRegistro(contadorRegistro);
+            registro.setContador(contadorRegistro);
             listaRegistros.insertar(registro);
         }
         archivo.close();

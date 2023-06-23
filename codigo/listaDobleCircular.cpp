@@ -79,7 +79,7 @@ void listaDobleCircular<T>::imprimir()
 	if (!vacia()){
 		Nodo<T>* aux = this->primero;
 		do{
-			std::cout <<aux->getDato()<<"-";
+			std::cout<< aux->getDato()<<"-";
 			aux = aux ->getSiguiente();
 		}
 		while(aux != this->primero);
@@ -164,4 +164,32 @@ Nodo<T>* listaDobleCircular<T>::obtenerNodoEnPosicion(int posicion) const
     }
 
     return aux;
+}
+
+template <typename T>
+T listaDobleCircular<T>::extraer(T dato){
+	if (!vacia()){
+		Nodo<T>* aux = this->primero;
+		do{
+			if (aux->getDato() == dato){
+				return aux->getDato();
+			}
+			aux = aux->getSiguiente();
+		} while (aux != this->primero);
+	}
+	return dato;
+}
+template <typename T>
+Nodo<T>* listaDobleCircular<T>::extraerNodo(T dato){
+	if (!vacia()){
+		Nodo<T>* aux = this->cola;
+		do{
+			if (aux->getDato() == dato){
+				return aux;
+			}
+			aux = aux->getAnterior();
+		} while (aux != this->cola);
+	}
+	
+	return nullptr;
 }

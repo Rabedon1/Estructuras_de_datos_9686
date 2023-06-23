@@ -26,6 +26,9 @@ public:
    Nodo<T>* getUltimo();
    void setPrimero(Nodo<T>*);
    void setUltimo(Nodo<T>*);
+   	T extraer(T)override;
+	Nodo<T>* extraerNodo(T);
+
 	void shellSort();
 	int contarElementos() const;
 	Nodo<T>* obtenerNodoEnPosicion(int posicion) const;

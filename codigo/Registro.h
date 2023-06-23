@@ -30,6 +30,7 @@ public:
    void setContador(int newContador);
    void addContador(void);
    
+   
    friend std::ostream& operator<<(std::ostream&, Registro&);
    bool operator == (Registro&);
    bool operator>(Registro&);

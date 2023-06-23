@@ -1,18 +1,18 @@
-
+#ifndef ARCHIVO_H
+#define ARCHIVO_H
 #include "Persona.h"
 #include "Registro.h"
-#include "listaDobleCircular.h"
 #include <string>
 
 
 template <typename T>
-class ListaDobleCircular;
+class listaDobleCircular;
 
-class GestorArchivo
+class Archivo
 {
 	public:
-		GestorArchivo();
-		~GestorArchivo();
+		Archivo();
+		~Archivo();
 		static Fecha extraerFecha(std::string input);
 		static void guardarListaPersonaComoCSV(listaDobleCircular<Persona>&, std::string);
 		static void cargarCSVEnListaPersona(listaDobleCircular<Persona>&, std::string);
@@ -22,3 +22,4 @@ class GestorArchivo
 	private:		
 		
 };
+#endif // ARCHIVO_H
