@@ -6,14 +6,21 @@
 
 void registrarEmpleado(listaDobleCircular<Persona>&);
 void registrarEntradaSalida(listaDobleCircular<Registro>&, listaDobleCircular<Persona>&);
-void mostrarRegistroPorEntrada(listaDobleCircular<RegistroEntradaSalida>&);
-void mostrarRegistroPorSalida(listaDobleCircular<RegistroEntradaSalida>&);
+void mostrarRegistroPorEntrada(listaDobleCircular<Registro>&);
+void mostrarRegistroPorSalida(listaDobleCircular<Registro>&);
 void mostrarRegistroIndividual();
 void mostrarEmpleadosPorNombre(listaDobleCircular<Persona>&);
 void mostrarEmpleadosPorApellido(listaDobleCircular<Persona>&);
 using namespace std;
 
 void mostrarMenu(int opcionSeleccionada) {
+	listaDobleCircular<Persona> listaPersonas;
+	listaDobleCircular<Registro> listaRegistros;
+	std::string opcion;
+	
+	// Cargar archivos
+	GestorArchivo::cargarCSVEnListaPersona(listaPersonas, "personas.csv");
+	GestorArchivo::cargarCSVEnListaRegistro(listaRegistros, listaPersonas, "registros.csv");
     system("cls"); // Limpia la pantalla
 
     cout << "=== MENU ===" << endl;
@@ -45,8 +52,7 @@ int main() {
             case 13: // Tecla Enter
                 switch (opcion) {
                     case 1:
-                        cout << "Ha seleccionado la Opción 1." << endl;
-                        // Realizar acciones para la Opción 1
+                        registr
                         break;
                     case 2:
                         cout << "Ha seleccionado la Opción 2." << endl;
