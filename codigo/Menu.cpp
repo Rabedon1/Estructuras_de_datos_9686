@@ -1,5 +1,16 @@
 #include <iostream>
 #include <conio.h> // Se utiliza para obtener la entrada de teclado sin bloquear
+#include "listaDoblecircular.h"
+#include "Persona.h"
+#include "Registro.h"
+
+void registrarEmpleado(listaDobleCircular<Persona>&);
+void registrarEntradaSalida(listaDobleCircular<Registro>&, listaDobleCircular<Persona>&);
+void mostrarRegistroPorEntrada(listaDobleCircular<RegistroEntradaSalida>&);
+void mostrarRegistroPorSalida(listaDobleCircular<RegistroEntradaSalida>&);
+void mostrarRegistroIndividual();
+void mostrarEmpleadosPorNombre(listaDobleCircular<Persona>&);
+void mostrarEmpleadosPorApellido(listaDobleCircular<Persona>&);
 using namespace std;
 
 void mostrarMenu(int opcionSeleccionada) {
