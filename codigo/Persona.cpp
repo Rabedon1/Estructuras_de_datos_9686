@@ -50,14 +50,10 @@ void Persona::setApellido(std::string newApellido)
 
 Persona::Persona()
 {
-<<<<<<< HEAD
-=======
     this->nombre = "";
     this->apellido = "";
     this->cedula = "";
-   
->>>>>>> f807cc6018870076bb4d65051e46e88577eee884
-}
+   }
 
 Persona::Persona(std::string cedula, std::string nombre ,std::string apellido, Fecha fechaNacimiento){
 	

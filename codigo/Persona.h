@@ -38,11 +38,7 @@ private:
    std::string cedula;
    std::string nombre;
    std::string apellido;
-<<<<<<< HEAD
-	Fecha fechaNacimoento;
-=======
    Fecha fechaNacimiento;
->>>>>>> f807cc6018870076bb4d65051e46e88577eee884
 
 };
 

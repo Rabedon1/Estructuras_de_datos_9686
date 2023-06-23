@@ -11,8 +11,8 @@
 Registro::Registro(Persona persona, Fecha EntradaDate, Fecha SalidaDate)
 {
    this->persona = persona;
-   this->EntradaDate = SalidaDate;
-   this->SalidaDate = SalidaDate;
+   this->entradaDate = SalidaDate;
+   this->salidaDate = SalidaDate;
    this->contador = 0;
 }
 
@@ -25,6 +25,8 @@ void Registro::setPersona(Persona newPersona)
 {
    persona = newPersona;
 }
+
+
 Registro::Registro()
 {
 
@@ -37,49 +39,62 @@ Registro::~Registro()
 
 Fecha Registro::getEntradaDate(void)
 {
-   return EntradaDate;
+   return entradaDate;
 }
 
 void Registro::setEntradaDate(Fecha newEntradaDate)
 {
-   EntradaDate = newEntradaDate;
+   entradaDate = newEntradaDate;
 }
 
 Fecha Registro::getSalidaDate(void)
 {
-   return SalidaDate;
+   return salidaDate;
 }
 
 void Registro::setSalidaDate(Fecha newSalidaDate)
 {
-   SalidaDate = newSalidaDate;
+   salidaDate = newSalidaDate;
 }
+
+int Registro::getContador() {
+	return contador;
+}
+
+void Registro::setContador(int newContador) {
+	contador = newContador;
+}
+
+void Registro::addContador(void) {
+	contador++;
+}
+
 
 std::ostream& operator<<(std::ostream& ostr, Registro& registro) {
 	ostr << "Registro: -> {" << registro.persona
-  		<< ", Fecha/hora Entrada: " << Registro.fechaEntrada
-		<< ", Fecha/hora Salida: "<< registro.fechaSalida << "}"<< std::endl;
-  return os;
+  		<< ", Fecha/hora Entrada: " << registro.entradaDate
+		<< ", Fecha/hora Salida: "<< registro.salidaDate << "}"<< std::endl;
+  return ostr;
 }
 
-bool RegistroEntradaSalida::operator==(RegistroEntradaSalida& registro) {
+bool Registro::operator==(Registro& registro) {
 	std::string cedula1 = this->getPersona().getCedula();
 	std::string cedula2 = registro.getPersona().getCedula();
 	return  cedula1 == cedula2;
 }
 
-bool RegistroEntradaSalida::operator>(const RegistroEntradaSalida& registro){
-	if (this->fechaEntrada.getAnio() != registro.getFechaEntrada().getAnio())
-        return this->fechaEntrada.getAnio() > registro.getFechaEntrada().getAnio();
+bool Registro::operator>(Registro& registro){
+	if (this->entradaDate.getAnio() != registro.getEntradaDate().getAnio())
+        return this->entradaDate.getAnio() > registro.getEntradaDate().getAnio();
     
-	if (this->fechaEntrada.getMes() != registro.getFechaEntrada().getMes())
-    	return this->fechaEntrada.getMes() > registro.getFechaEntrada().getMes();
+	if (this->entradaDate.getMes() != registro.getEntradaDate().getMes())
+    	return this->entradaDate.getMes() > registro.getEntradaDate().getMes();
     
-	if (this->fechaEntrada.getDia() != registro.getFechaEntrada().getDia())
-        return this->fechaEntrada.getDia() > registro.getFechaEntrada().getDia();
+	if (this->entradaDate.getDia() != registro.getEntradaDate().getDia())
+        return this->entradaDate.getDia() > registro.getEntradaDate().getDia();
     
-	if (this->fechaEntrada.getHora() != registro.getFechaEntrada().getHora())
-        return this->fechaEntrada.getHora() > registro.getFechaEntrada().getHora();
+	if (this->entradaDate.getHora() != registro.getEntradaDate().getHora())
+        return this->entradaDate.getHora() > registro.getEntradaDate().getHora();
     
 	if (this->fechaEntrada.getMinuto() != registro.getFechaEntrada().getMinuto())
         return this->fechaEntrada.getMinuto() > registro.getFechaEntrada().getMinuto();

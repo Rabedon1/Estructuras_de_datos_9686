@@ -30,15 +30,15 @@ public:
    void setContador(int newContador);
    void addContador(void);
    
-   friend std::ostream& operator<<(std::ostream&, Registro);
+   friend std::ostream& operator<<(std::ostream&, Registro&);
    bool operator == (Registro&);
    bool operator>(Registro&);
    bool operator<(Registro&);
 protected:
 private:
    Persona persona;
-   Fecha EntradaDate;
-   Fecha SalidaDate;
+   Fecha entradaDate;
+   Fecha salidaDate;
    int contador;
 
 };
