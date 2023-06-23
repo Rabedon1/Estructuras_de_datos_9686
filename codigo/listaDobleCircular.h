@@ -17,11 +17,11 @@ class listaDobleCircular:public CRUDLista<T>
 public:
    listaDobleCircular();
    ~listaDobleCircular();
-   bool estaVacia()override;
+   bool vacia()override;
    void insertar(T)override;
    void eliminar(T)override;
    bool buscar(T)override;
-   void mostrar()override;
+   void imprimir()override;
    Nodo<T>* getPrimero();
    Nodo<T>* getUltimo();
    void setPrimero(Nodo<T>*);

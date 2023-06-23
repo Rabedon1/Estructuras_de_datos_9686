@@ -8,8 +8,8 @@
 #if !defined(__Class_Diagram_2_Persona_h)
 #define __Class_Diagram_2_Persona_h
 
-class Fecha;
-class Registro;
+#include <string>
+#include "Fecha.h"
 
 class Persona
 {
@@ -20,18 +20,23 @@ public:
    void setNombre(std::string newNombre);
    std::string getApellido(void);
    void setApellido(std::string newApellido);
+   Fecha gerFechaNacimiento(void);
+   void setFechaNacimiento(Fecha);
    Persona();
+   Persona(std::string cedula, std::string nombre, std::string apellido, Fecha fechaNacimiento);
    ~Persona();
-
-   Fecha** fecha;
-   Registro** registro;
+	
+	friend ostream& operator<<(ostream&, Persona&);
+	bool operator == (Persona&);
+	bool operator >(Persona&);
+	bool operator <(Persona%);
 
 protected:
 private:
    std::string cedula;
    std::string nombre;
    std::string apellido;
-
+	Fecha fechaNacimoento
 
 };
 

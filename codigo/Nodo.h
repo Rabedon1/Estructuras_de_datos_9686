@@ -26,9 +26,6 @@ private:
 	T dato;
 	Nodo<T>* siguiente;
 	Nodo<T>* anterior;
-
-
-
 };
 
 #endif

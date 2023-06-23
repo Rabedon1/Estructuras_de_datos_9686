@@ -10,8 +10,8 @@
 
 class Fecha;
 
-#include <Fecha.h>
-#include <Persona.h>
+#include "Fecha.h"
+#include "persona.h"
 
 class Registro
 {

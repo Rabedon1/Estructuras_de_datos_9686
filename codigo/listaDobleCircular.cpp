@@ -8,7 +8,7 @@
 
 #include "listaDobleCircular.h"
 #include <iostream>
-
+using namespace std;
 template <typename T>
 listaDobleCircular<T>::listaDobleCircular()
 {
@@ -23,7 +23,7 @@ listaDobleCircular<T>::~listaDobleCircular()
 }
 
 template <typename T>
-bool listaDobleCircular<T>::estaVacia(){
+bool listaDobleCircular<T>::vacia(){
 	return this->cabeza == nullptr;
 
 }
@@ -32,7 +32,7 @@ template <typename T>
 void listaDobleCircular<T>::insertar(T dato)
 {
 	Nodo<T>* nuevo = new Nodo<T>(dato);
-	if(estaVacia()){
+	if(vacia()){
 		this->primero = nuevo;
 		this->ultimo = nuevo;
 		this->primero->setSiguiente(this->ultimo);
@@ -46,53 +46,67 @@ void listaDobleCircular<T>::insertar(T dato)
 		this->primero->setAnterior(nuevo);
 		this->ultimo = nuevo;
 	}
-
-void listaDobleCircular<T>::eliminar(Persona persona)
+}
+template <typename T>
+void listaDobleCircular<T>::eliminar(T dato)
 {
-   // TODO : implement
+	if(!vacia()){
+		if(this->primero->getDato() == dato){
+			Nodo<T>* aux = this->primero;
+			this ->primero = this->primero->getSiguiente();
+			this->primero -> setAnterior(this->ultimo);
+			this->ultimo->setSiguiente(this->primero);
+		}
+		else{
+			Nodo<T>* aux = this->primero;
+			while (aux->getSiguiente() != this->primero){
+				if(aux->getSiguiente()->getDato() == dato){
+					Nodo<T>* aux2 = aux->getSiguiente();
+					aux->setSiguiente(aux2->getSiguiente());
+					aux2->getSiguiente()->setAnterior(aux);
+					delete aux2;
+					break;
+				}
+				aux = aux->getSiguiente();
+			}
+		}
+	}
 }
 
-void listaDobleCircular::imprimirDatos(void)
+template <typename T>
+void listaDobleCircular<T>::imprimir()
 {
-   // TODO : implement
-}
+	if (!vacia()){
+		Nodo<T>* aux = this->primero;
+		do{
+			std::cout <<aux->getDato()<<"-";
+			aux = aux ->getSiguiente();
+		}
+		while(aux != this->primero);
+		cout<<endl;
+		}	
+	}
 
-Nodo listaDobleCircular::crearNodo(Persona persona)
-{
-   // TODO : implement
-}
-
-int listaDobleCircular::cantidadNodos(void)
-{
-   // TODO : implement
-}
-
-void listaDobleCircular::agregarPersona(Persona persona)
-{
-   // TODO : implement
-}
-
-Persona listaDobleCircular::buscarPorCedula(std::string cedula)
-{
-   // TODO : implement
-}
-
-Nodo listaDobleCircular::getUltimo(void)
+template <typename T>
+Nodo<T>* listaDobleCircular<T>::getUltimo(void)
 {
    return ultimo;
 }
 
-void listaDobleCircular::setUltimo(Nodo newUltimo)
+template <typename T>
+void listaDobleCircular<T>::setUltimo(Nodo<T>* newUltimo)
 {
    ultimo = newUltimo;
 }
 
-Nodo listaDobleCircular::getPrimero(void)
+template <typename T>
+Nodo<T>* listaDobleCircular<T>::getPrimero(void)
 {
    return primero;
 }
 
-void listaDobleCircular::setPrimero(Nodo newPrimero)
+template <typename T>
+void listaDobleCircular<T>::setPrimero(Nodo<T>* newPrimero)
 {
    primero = newPrimero;
 }
