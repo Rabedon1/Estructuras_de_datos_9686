@@ -24,7 +24,7 @@ listaDobleCircular<T>::~listaDobleCircular()
 
 template <typename T>
 bool listaDobleCircular<T>::vacia(){
-	return this->cabeza == nullptr;
+	return this->primero == nullptr;
 
 }
 
