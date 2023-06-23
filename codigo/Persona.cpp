@@ -40,8 +40,6 @@ void Persona::setApellido(std::string newApellido)
 
 Persona::Persona()
 {
-   fecha = NULL;
-   registro = NULL;
 }
 
 Persona::~Persona()

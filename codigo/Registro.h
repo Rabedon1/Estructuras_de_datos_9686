@@ -12,26 +12,34 @@ class Fecha;
 
 #include "Fecha.h"
 #include "persona.h"
+#include <iostream>
 
 class Registro
 {
 public:
    Registro();
+   Registro(Persona persona, Fecha EntradaDate, Fecha SalidaDate);
    ~Registro();
-   Fecha getFechaEntrada(void);
-   void setFechaEntrada(Fecha newFechaEntrada);
-   Fecha getFechaSalida(void);
-   void setFechaSalida(Fecha newFechaSalida);
-   void insertarEntrada(Persona persona, Fecha fecha);
-   void insertarSalida(Persona persona, Fecha fecha);
-
-   Fecha** fecha;
-
+   Persona getPersona(void);
+   void setPersona(Persona newPersona);
+   Fecha getEntradaDate(void);
+   void setEntradaDate(Fecha newEntradaDate);
+   Fecha getSalidaDate(void);
+   void setSalidaDate(Fecha newSalidaDate);
+   int getContador(void);
+   void setContador(int newContador);
+   void addContador(void);
+   
+   friend std::ostream& operator<<(std::ostream&, Registro);
+   bool operator == (Registro&);
+   bool operator>(Registro&);
+   bool operator<(Registro&);
 protected:
 private:
-   Fecha fechaEntrada;
-   Fecha fechaSalida;
-
+   Persona persona;
+   Fecha EntradaDate;
+   Fecha SalidaDate;
+   int contador;
 
 };
 
