@@ -96,28 +96,27 @@ bool Registro::operator>(Registro& registro){
 	if (this->entradaDate.getHora() != registro.getEntradaDate().getHora())
         return this->entradaDate.getHora() > registro.getEntradaDate().getHora();
     
-	if (this->fechaEntrada.getMinuto() != registro.getFechaEntrada().getMinuto())
-        return this->fechaEntrada.getMinuto() > registro.getFechaEntrada().getMinuto();
+	if (this->entradaDate.getMinuto() != registro.getEntradaDate().getMinuto())
+        return this->entradaDate.getMinuto() > registro.getEntradaDate().getMinuto();
     
-    return (this->fechaEntrada.getSegundo()>registro.getFechaEntrada().getSegundo());
-    //return(persona.getNombre()>registro.persona.getNombre());
+    return (this->entradaDate.getSegundo()>registro.getEntradaDate().getSegundo());
 }
 
-bool RegistroEntradaSalida::operator<( const RegistroEntradaSalida& registro){
-	if (this->fechaSalida.getAnio() != registro.getFechaSalida().getAnio())
-        return this->fechaSalida.getAnio() > registro.getFechaSalida().getAnio();
+bool Registro::operator<(Registro& registro){
+	if (this->salidaDate.getAnio() != registro.getSalidaDate().getAnio())
+        return this->salidaDate.getAnio() > registro.getSalidaDate().getAnio();
     
-	if (this->fechaSalida.getMes() != registro.getFechaSalida().getMes())
-    	return this->fechaSalida.getMes() > registro.getFechaSalida().getMes();
+	if (this->salidaDate.getMes() != registro.getSalidaDate().getMes())
+    	return this->salidaDate.getMes() > registro.getSalidaDate().getMes();
     
-	if (this->fechaSalida.getDia() != registro.getFechaSalida().getDia())
-        return this->fechaSalida.getDia() > registro.getFechaSalida().getDia();
+	if (this->salidaDate.getDia() != registro.getSalidaDate().getDia())
+        return this->salidaDate.getDia() > registro.getSalidaDate().getDia();
     
-	if (this->fechaSalida.getHora() != registro.getFechaSalida().getHora())
-        return this->fechaSalida.getHora() > registro.getFechaSalida().getHora();
+	if (this->salidaDate.getHora() != registro.getSalidaDate().getHora())
+        return this->salidaDate.getHora() > registro.getSalidaDate().getHora();
     
-	if (this->fechaSalida.getMinuto() != registro.getFechaSalida().getMinuto())
-        return this->fechaSalida.getMinuto() > registro.getFechaSalida().getMinuto();
+	if (this->salidaDate.getMinuto() != registro.getSalidaDate().getMinuto())
+        return this->salidaDate.getMinuto() > registro.getSalidaDate().getMinuto();
     
-    return (this->fechaSalida.getSegundo()>registro.getFechaSalida().getSegundo());
+    return (this->salidaDate.getSegundo()>registro.getSalidaDate().getSegundo());
 }
