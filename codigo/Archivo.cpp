@@ -119,8 +119,8 @@ void GestorArchivo::cargarCSVEnListaRegistro(listaDobleCircular<Registro>& lista
             
             Persona personaEncontrada(cedula, "", "", fechaEntrada);
             personaRegistro = listaPersonas.extraer(personaEncontrada);
-            RegistroEntradaSalida registro(personaRegistro, fechaEntrada, fechaSalida);
-            registro.setContadorRegistro(contadorRegistro);
+            Registro registro(personaRegistro, fechaEntrada, fechaSalida);
+            Registro.setContadorRegistro(contadorRegistro);
             listaRegistros.insertar(registro);
         }
         archivo.close();

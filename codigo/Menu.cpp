@@ -6,8 +6,8 @@
 
 void registrarEmpleado(listaDobleCircular<Persona>&);
 void registrarEntradaSalida(listaDobleCircular<Registro>&, listaDobleCircular<Persona>&);
-void mostrarRegistroPorEntrada(listaDobleCircular<RegistroEntradaSalida>&);
-void mostrarRegistroPorSalida(listaDobleCircular<RegistroEntradaSalida>&);
+void mostrarRegistroPorEntrada(listaDobleCircular<Registro>&);
+void mostrarRegistroPorSalida(listaDobleCircular<Registro>&);
 void mostrarRegistroIndividual();
 void mostrarEmpleadosPorNombre(listaDobleCircular<Persona>&);
 void mostrarEmpleadosPorApellido(listaDobleCircular<Persona>&);
