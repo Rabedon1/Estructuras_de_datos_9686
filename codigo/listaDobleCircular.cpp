@@ -88,6 +88,29 @@ void listaDobleCircular<T>::imprimir()
 	}
 	
 template <typename T>
+Nodo<T>* listaDobleCircular<T>::getUltimo(void)
+{
+   return ultimo;
+}
+
+template <typename T>
+void listaDobleCircular<T>::setUltimo(Nodo<T>* newUltimo)
+{
+   ultimo = newUltimo;
+}
+
+template <typename T>
+Nodo<T>* listaDobleCircular<T>::getPrimero(void)
+{
+   return primero;
+}
+
+template <typename T>
+void listaDobleCircular<T>::setPrimero(Nodo<T>* newPrimero)
+{
+   primero = newPrimero;
+}
+template <typename T>
 void listaDobleCircular<T>::shellSort()
 {
     int n = contarElementos();
@@ -141,27 +164,4 @@ Nodo<T>* listaDobleCircular<T>::obtenerNodoEnPosicion(int posicion) const
     }
 
     return aux;
-}
-template <typename T>
-Nodo<T>* listaDobleCircular<T>::getUltimo(void)
-{
-   return ultimo;
-}
-
-template <typename T>
-void listaDobleCircular<T>::setUltimo(Nodo<T>* newUltimo)
-{
-   ultimo = newUltimo;
-}
-
-template <typename T>
-Nodo<T>* listaDobleCircular<T>::getPrimero(void)
-{
-   return primero;
-}
-
-template <typename T>
-void listaDobleCircular<T>::setPrimero(Nodo<T>* newPrimero)
-{
-   primero = newPrimero;
 }
