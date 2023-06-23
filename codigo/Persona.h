@@ -20,23 +20,23 @@ public:
    void setNombre(std::string newNombre);
    std::string getApellido(void);
    void setApellido(std::string newApellido);
-   Fecha gerFechaNacimiento(void);
+   Fecha getFechaNacimiento(void);
    void setFechaNacimiento(Fecha);
    Persona();
    Persona(std::string cedula, std::string nombre, std::string apellido, Fecha fechaNacimiento);
    ~Persona();
 	
-	friend ostream& operator<<(ostream&, Persona&);
+	friend std::ostream& operator<<(std::ostream&, Persona&);
 	bool operator == (Persona&);
 	bool operator >(Persona&);
-	bool operator <(Persona%);
+	bool operator <(Persona&);
 
 protected:
 private:
    std::string cedula;
    std::string nombre;
    std::string apellido;
-	Fecha fechaNacimoento
+   Fecha fechaNacimiento;
 
 };
 
