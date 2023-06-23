@@ -8,6 +8,16 @@
 #include "Persona.h"
 #include <iostream>
 
+Fecha Persona::getFechaNacimiento(void) 
+{
+   return fechaNacimiento;
+}
+
+void Persona::setFechaNacimiento(Fecha newFechaNacimiento)
+{
+   fechaNacimiento = newFechaNacimiento;
+}
+
 std::string Persona::getCedula(void)
 {
    return cedula;
@@ -40,9 +50,49 @@ void Persona::setApellido(std::string newApellido)
 
 Persona::Persona()
 {
+<<<<<<< HEAD
+=======
+    this->nombre = "";
+    this->apellido = "";
+    this->cedula = "";
+   
+>>>>>>> f807cc6018870076bb4d65051e46e88577eee884
 }
 
+Persona::Persona(std::string cedula, std::string nombre ,std::string apellido, Fecha fechaNacimiento){
+	
+	this->nombre = nombre;
+    this->apellido = apellido;
+    this->cedula = cedula;
+    this->fechaNacimiento = fechaNacimiento;	
+}
 Persona::~Persona()
 {
    // TODO : implement
 }
+
+
+std::ostream& operator <<(std::ostream& ostr,  Persona& persona){
+	ostr << "Persona: -> {Nombre: " + persona.nombre
+  		+ ", Apellido: " + persona.apellido
+		+ ", Cedula: "+ persona.cedula
+		+ ", FechaNacimiento: " << persona.fechaNacimiento << "}"<< std::endl;
+  return ostr;
+	
+}
+
+
+bool Persona::operator==(Persona& persona){
+	return (this->cedula == persona.cedula);
+}
+
+bool Persona::operator>( Persona& persona){
+	return (this->nombre > persona.nombre);
+}
+
+bool Persona::operator<(Persona& persona){
+	return (this->apellido > persona.apellido);}
+	
+	
+	
+	

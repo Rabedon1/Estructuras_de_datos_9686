@@ -22,7 +22,7 @@ public:
    void setNombre(std::string newNombre);
    std::string getApellido(void);
    void setApellido(std::string newApellido);
-   Fecha gerFechaNacimiento(void);
+   Fecha getFechaNacimiento(void);
    void setFechaNacimiento(Fecha);
    Persona();
    Persona(std::string cedula, std::string nombre, std::string apellido, Fecha fechaNacimiento);
@@ -38,7 +38,11 @@ private:
    std::string cedula;
    std::string nombre;
    std::string apellido;
+<<<<<<< HEAD
 	Fecha fechaNacimoento;
+=======
+   Fecha fechaNacimiento;
+>>>>>>> f807cc6018870076bb4d65051e46e88577eee884
 
 };
 
