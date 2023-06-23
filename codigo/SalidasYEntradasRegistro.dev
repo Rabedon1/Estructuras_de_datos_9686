@@ -174,7 +174,7 @@ BuildCmd=
 <<<<<<< HEAD
 FileName=Archivo.h
 =======
-FileName=..\..\..\..\..\..\..\Downloads\proyecto\proyecto\Input.cpp
+FileName=Archivo.cpp
 >>>>>>> dbdad573486d188e6cabd258d809653be296111d
 CompileCpp=1
 Folder=
@@ -188,7 +188,7 @@ BuildCmd=
 <<<<<<< HEAD
 FileName=Archivo.cpp
 =======
-FileName=..\..\..\..\..\..\..\Downloads\proyecto\proyecto\Input.h
+FileName=Archivo.h
 >>>>>>> dbdad573486d188e6cabd258d809653be296111d
 CompileCpp=1
 Folder=
